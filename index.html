@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZL154 · Jellyfin Plugins</title>
+<meta name="description" content="Open-source Jellyfin plugins by ZL154 — security/2FA, star ratings, achievements, missing-episode scanning and prerolls." />
+<meta property="og:title" content="ZL154 · Jellyfin Plugins" />
+<meta property="og:description" content="Open-source Jellyfin plugins — security/2FA, ratings, achievements, prerolls and more." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --blue:#00A4DC; --purple:#AA5CC3; --violet:#8a2be2;
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230;
+    --border:#2a3344; --text:#e6edf3; --muted:#9aa7b5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:920px; margin:0 auto; padding:0 20px}
+
+  /* header / nav */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(13,17,23,.85); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex; align-items:center; gap:18px; height:56px; flex-wrap:wrap}
+  nav .brand{font-weight:700; color:var(--text); margin-right:auto}
+  nav .brand span{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav a.link{color:var(--muted); font-size:14px}
+  nav a.link:hover{color:var(--text); text-decoration:none}
+
+  /* hero */
+  .hero{text-align:center; padding:72px 0 40px}
+  .hero h1{font-size:42px; line-height:1.15; margin-bottom:16px}
+  .hero h1 span{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted); font-size:18px; max-width:620px; margin:0 auto 28px}
+  .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:8px; font-weight:600; font-size:14px; border:1px solid var(--border)}
+  .btn.primary{background:linear-gradient(90deg,var(--purple),var(--blue)); color:#fff; border:none}
+  .btn.ghost{background:var(--panel); color:var(--text)}
+  .btn:hover{text-decoration:none; filter:brightness(1.1)}
+
+  /* plugin sections */
+  section.plugin{
+    scroll-margin-top:72px;
+    background:var(--panel); border:1px solid var(--border); border-radius:14px;
+    padding:28px; margin:22px 0;
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  .plugin h2{font-size:24px; display:flex; align-items:center; gap:10px}
+  .plugin .emoji{font-size:26px}
+  .plugin .desc{color:var(--muted)}
+  .tags{display:flex; gap:8px; flex-wrap:wrap}
+  .tag{font-size:12px; color:var(--blue); background:rgba(0,164,220,.12); border:1px solid rgba(0,164,220,.3); padding:3px 10px; border-radius:999px}
+  .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:4px}
+  .shot{
+    width:100%; border-radius:10px; border:1px solid var(--border);
+    background:var(--panel2); aspect-ratio:16/8;
+    display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:14px;
+    overflow:hidden;
+  }
+  .shot img{width:100%; height:100%; object-fit:cover; display:block}
+
+  /* section intro */
+  .section-title{text-align:center; margin:48px 0 8px; font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+
+  footer{border-top:1px solid var(--border); margin-top:56px; padding:32px 0; text-align:center; color:var(--muted); font-size:14px}
+  footer a{color:var(--muted)}
+  .install{background:var(--panel2); border:1px solid var(--border); border-radius:8px; padding:12px 14px; font-size:14px; color:var(--muted)}
+  .install code{color:var(--blue); background:rgba(0,164,220,.1); padding:2px 6px; border-radius:5px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  @media(min-width:680px){
+    section.plugin{grid-template-columns:1.1fr 1fr; align-items:start}
+    .plugin .meta{grid-column:1}
+    .plugin .shot{grid-column:2; grid-row:1 / span 5}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span>ZL154</span> · Jellyfin Plugins</div>
+      <a class="link" href="#jellyfinsecurity">Security</a>
+      <a class="link" href="#startrack">StarTrack</a>
+      <a class="link" href="#achievementbadges">Badges</a>
+      <a class="link" href="#missingepisodes">Missing</a>
+      <a class="link" href="#projectionist">Prerolls</a>
+      <a class="link" href="https://github.com/ZL154">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Open-source plugins for <span>Jellyfin</span></h1>
+    <p>Security, ratings, achievements, library tooling and prerolls — built for self-hosters who want more out of their media server.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/ZL154">View all on GitHub</a>
+      <a class="btn ghost" href="https://ko-fi.com/zl154">☕ Buy me a coffee</a>
+    </div>
+  </div>
+
+  <div class="section-title">The plugin suite</div>
+
+  <!-- To add a screenshot: drop a PNG in /assets and replace the .shot contents with
+       <img src="assets/<name>.png" alt="..."> -->
+
+  <section class="plugin" id="jellyfinsecurity">
+    <div class="meta">
+      <h2><span class="emoji">🔐</span> JellyfinSecurity</h2>
+      <p class="desc">Hardens Jellyfin sign-in: native two-factor auth (TOTP &amp; email), passkeys / WebAuthn, OIDC&nbsp;/&nbsp;SSO (Google, Authentik, Authelia, Keycloak…), brute-force IP banning and impossible-travel detection.</p>
+      <div class="tags"><span class="tag">2FA / TOTP</span><span class="tag">Passkeys</span><span class="tag">OIDC / SSO</span><span class="tag">IP banning</span></div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/ZL154/JellyfinSecurity">GitHub</a>
+        <a class="btn ghost" href="https://github.com/ZL154/JellyfinSecurity/releases/latest">Latest release</a>
+        <a class="btn ghost" href="https://github.com/ZL154/JellyfinSecurity/wiki">Docs</a>
+      </div>
+    </div>
+    <div class="shot">📷 screenshot — assets/jellyfinsecurity.png</div>
+  </section>
+
+  <section class="plugin" id="startrack">
+    <div class="meta">
+      <h2><span class="emoji">⭐</span> StarTrack</h2>
+      <p class="desc">Letterboxd-style star ratings inside Jellyfin, with two-way sync to Trakt, Simkl, Letterboxd and Yamtrack — plus watched/liked sync and a one-time backfill of your existing ratings.</p>
+      <div class="tags"><span class="tag">Ratings</span><span class="tag">Trakt</span><span class="tag">Simkl</span><span class="tag">Letterboxd</span></div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/ZL154/jellyfin-plugin-startrack">GitHub</a>
+        <a class="btn ghost" href="https://github.com/ZL154/jellyfin-plugin-startrack/releases/latest">Latest release</a>
+      </div>
+    </div>
+    <div class="shot">📷 screenshot — assets/startrack.png</div>
+  </section>
+
+  <section class="plugin" id="achievementbadges">
+    <div class="meta">
+      <h2><span class="emoji">🏅</span> AchievementBadges</h2>
+      <p class="desc">Earn achievement-style badges from your viewing (and reading) activity — first watches, binges, late-night sessions and more, with a backfill of your existing history.</p>
+      <div class="tags"><span class="tag">Gamification</span><span class="tag">Achievements</span><span class="tag">Watch &amp; read</span></div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/ZL154/AchievementBadges_for_Jellyfin">GitHub</a>
+        <a class="btn ghost" href="https://github.com/ZL154/AchievementBadges_for_Jellyfin/releases/latest">Latest release</a>
+      </div>
+    </div>
+    <div class="shot">📷 screenshot — assets/achievementbadges.png</div>
+  </section>
+
+  <section class="plugin" id="missingepisodes">
+    <div class="meta">
+      <h2><span class="emoji">📺</span> MissingEpisodes</h2>
+      <p class="desc">Scans your library (and Sonarr) for missing episodes and can auto-search for them — so gaps in your TV shows don't go unnoticed.</p>
+      <div class="tags"><span class="tag">Library</span><span class="tag">Sonarr</span><span class="tag">TV shows</span></div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/ZL154/MissingEpisodesJellyfin">GitHub</a>
+        <a class="btn ghost" href="https://github.com/ZL154/MissingEpisodesJellyfin/releases/latest">Latest release</a>
+      </div>
+    </div>
+    <div class="shot">📷 screenshot — assets/missingepisodes.png</div>
+  </section>
+
+  <section class="plugin" id="projectionist">
+    <div class="meta">
+      <h2><span class="emoji">🎬</span> Projectionist</h2>
+      <p class="desc">Folder-based prerolls before movies and episodes — schedules, rules and maturity gating, for a little cinema magic before the feature starts.</p>
+      <div class="tags"><span class="tag">Prerolls</span><span class="tag">Playback</span><span class="tag">Schedules</span></div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/ZL154/jellyfin-projectionist">GitHub</a>
+        <a class="btn ghost" href="https://github.com/ZL154/jellyfin-projectionist/releases/latest">Latest release</a>
+      </div>
+    </div>
+    <div class="shot">📷 screenshot — assets/projectionist.png</div>
+  </section>
+
+  <div class="install" style="margin-top:8px">
+    <strong>Installing:</strong> most of these can be added to Jellyfin via their plugin-repository manifest, or by dropping the release <code>.zip</code> into your plugins folder. See each plugin's GitHub page for the exact steps.
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Made by <a href="https://github.com/ZL154">@ZL154</a> ·
+    <a href="https://ko-fi.com/zl154">Ko-fi</a> ·
+    <a href="https://github.com/sponsors/ZL154">Sponsor</a><br/>
+    Jellyfin is a trademark of the Jellyfin project; these are independent, community plugins.
+  </div>
+</footer>
+
+</body>
+</html>
