@@ -31,7 +31,7 @@
     --ink-faint:#6f6c67;
     --line:rgba(236,232,225,.10);
     --line-strong:rgba(236,232,225,.18);
-    --accent:#5cc8f2;
+    --accent:#e0a64e;
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     --maxw:1080px;
@@ -58,7 +58,7 @@
     position:fixed;inset:0;
     pointer-events:none;z-index:0;
     background:
-      radial-gradient(120% 80% at 50% -10%, rgba(92,200,242,.06), transparent 55%),
+      radial-gradient(120% 80% at 50% -10%, rgba(224,166,78,.06), transparent 55%),
       radial-gradient(140% 120% at 50% 120%, rgba(0,0,0,.45), transparent 60%);
   }
   body::after{
@@ -69,7 +69,7 @@
   }
 
   a{color:inherit;text-decoration:none}
-  ::selection{background:rgba(92,200,242,.22);color:#fff}
+  ::selection{background:rgba(224,166,78,.22);color:#fff}
 
   :focus-visible{
     outline:2px solid var(--accent);
@@ -362,41 +362,24 @@
       <span class="label">What it does</span>
     </div>
     <ol class="features">
-      <li>
-        <span class="fi" aria-hidden="true">01</span>
-        <p class="ft"><b>Star ratings in the Jellyfin UI</b><span>A sidebar widget and an on-poster overlay, right where you watch.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">02</span>
-        <p class="ft"><b>Two-way sync</b><span>Keep ratings in step with Trakt, Simkl, Letterboxd and Yamtrack.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">03</span>
-        <p class="ft"><b>Watched &amp; liked</b><span>Synced alongside your ratings, not just the stars.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">04</span>
-        <p class="ft"><b>Backfill</b><span>Imports your existing ratings on first run so you start in sync.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">05</span>
-        <p class="ft"><b>Yamtrack CSV import</b><span>Bring your history in from a CSV export.</span></p>
-      </li>
+      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Star ratings in the Jellyfin UI</b><span>Rate anything from a tidy sidebar panel or an on-poster overlay, without leaving the player. Your scores sit right alongside the library.</span></p></li>
+      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Two-way sync</b><span>Keep ratings in step with Trakt, Simkl, Letterboxd and Yamtrack in both directions. Rate once and it shows up everywhere you track films.</span></p></li>
+      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>Watched &amp; liked</b><span>Beyond the stars, it syncs watched state and likes so your full history stays consistent across every service.</span></p></li>
+      <li><span class="fi" aria-hidden="true">04</span><p class="ft"><b>Backfill</b><span>On first run it imports the ratings you've already given, so you start fully in sync instead of from zero.</span></p></li>
+      <li><span class="fi" aria-hidden="true">05</span><p class="ft"><b>Yamtrack CSV import</b><span>Bring your back catalogue in from a Yamtrack CSV export in a couple of clicks.</span></p></li>
     </ol>
   </section>
 
   <section class="sec wrap" aria-labelledby="shots-title">
     <div class="sec-head">
       <h2 id="shots-title">Screenshots</h2>
-      <span class="label">Coming soon</span>
+      <span class="label">A closer look</span>
     </div>
-    <p class="shots-note">A closer look at the ratings widget and sync settings is on the way.</p>
+    <p class="shots-note">A closer look inside StarTrack.</p>
     <div class="shots">
-      <!-- To enable a screenshot: add the image to /assets (e.g. assets/startrack-1.png) and uncomment the matching <figure> block below. -->
-      <!--
-      <figure class="shot"><img src="../assets/startrack-1.png" alt="StarTrack rating widget on a movie in Jellyfin" loading="lazy" width="1600" height="900"><figcaption>The rating widget in the Jellyfin UI.</figcaption></figure>
-      <figure class="shot"><img src="../assets/startrack-2.png" alt="StarTrack external sync settings" loading="lazy" width="1600" height="900"><figcaption>Two-way sync configuration.</figcaption></figure>
-      -->
+      <figure class="shot"><img src="../assets/startrack-1.png" alt="StarTrack rating panel on a title" loading="lazy"><figcaption>Rating a title from the panel.</figcaption></figure>
+      <figure class="shot"><img src="../assets/startrack-2.png" alt="StarTrack top four and ratings grid" loading="lazy"><figcaption>Your top four and the ratings grid.</figcaption></figure>
+      <figure class="shot"><img src="../assets/startrack-3.png" alt="StarTrack recent ratings feed" loading="lazy"><figcaption>A feed of recent ratings.</figcaption></figure>
     </div>
   </section>
 

@@ -374,38 +374,14 @@
       <span class="label">What it does</span>
     </div>
     <ol class="features">
-      <li>
-        <span class="fi" aria-hidden="true">01</span>
-        <p class="ft"><b>Native two-factor authentication</b><span>TOTP authenticator apps and email one-time codes.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">02</span>
-        <p class="ft"><b>Passkeys / WebAuthn (FIDO2)</b><span>Passwordless, phishing-resistant sign-in.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">03</span>
-        <p class="ft"><b>OIDC / SSO</b><span>Google, Microsoft Entra, Apple, Authentik, Authelia, Keycloak, PocketID and Cloudflare Access — PKCE with full id_token validation, optional IdP-MFA enforcement and group allowlists.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">04</span>
-        <p class="ft"><b>Role → library access</b><span>Map IdP groups and roles to the libraries they unlock.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">05</span>
-        <p class="ft"><b>Brute-force protection</b><span>IP banning and rate limiting on repeated failures.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">06</span>
-        <p class="ft"><b>Impossible-travel detection</b><span>Flags sign-ins from improbable locations.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">07</span>
-        <p class="ft"><b>Email password recovery</b><span>Secure reset links.</span></p>
-      </li>
-      <li>
-        <span class="fi" aria-hidden="true">08</span>
-        <p class="ft"><b>Flexible enforcement</b><span>Require 2FA for everyone, admins only, or by network / CIDR — plus an OIDC-only mode that hides the built-in login.</span></p>
-      </li>
+      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Native two-factor authentication</b><span>Add TOTP from any authenticator app, or email one-time codes for users who don't have one. Enrolment and verification happen right inside the Jellyfin login flow.</span></p></li>
+      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Passkeys / WebAuthn (FIDO2)</b><span>Let people sign in with Face ID, Touch ID, Windows Hello or a hardware key. Passwordless and phishing-resistant, with no shared secret to leak.</span></p></li>
+      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>OIDC / SSO</b><span>Sign in through Google, Microsoft Entra, Apple, Authentik, Authelia, Keycloak, PocketID or Cloudflare Access. Full PKCE and id_token validation, with optional IdP-MFA enforcement and group allowlists.</span></p></li>
+      <li><span class="fi" aria-hidden="true">04</span><p class="ft"><b>Role to library access</b><span>Map identity-provider groups and roles to the libraries they unlock, so access follows your IdP. New users land with exactly the right libraries and nothing more.</span></p></li>
+      <li><span class="fi" aria-hidden="true">05</span><p class="ft"><b>Brute-force protection</b><span>Bans IP addresses and rate-limits repeated failed logins before they turn into a problem. Thresholds and ban durations are yours to tune.</span></p></li>
+      <li><span class="fi" aria-hidden="true">06</span><p class="ft"><b>Impossible-travel detection</b><span>Flags sign-ins that hop between distant locations faster than physically possible — a quiet early signal that an account may be compromised.</span></p></li>
+      <li><span class="fi" aria-hidden="true">07</span><p class="ft"><b>Email password recovery</b><span>Gives users a secure, time-limited reset link by email instead of an admin round-trip — self-service, without weakening the login.</span></p></li>
+      <li><span class="fi" aria-hidden="true">08</span><p class="ft"><b>Flexible enforcement</b><span>Require 2FA for everyone, admins only, or by network and CIDR range. An OIDC-only mode can hide the built-in login entirely.</span></p></li>
     </ol>
   </section>
 

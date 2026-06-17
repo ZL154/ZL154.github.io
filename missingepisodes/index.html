@@ -31,7 +31,7 @@
     --ink-faint:#6f6c67;
     --line:rgba(236,232,225,.10);
     --line-strong:rgba(236,232,225,.18);
-    --accent:#5cc8f2;
+    --accent:#4fd0a8;
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     --maxw:1080px;
@@ -58,7 +58,7 @@
     position:fixed;inset:0;
     pointer-events:none;z-index:0;
     background:
-      radial-gradient(120% 80% at 50% -10%, rgba(92,200,242,.06), transparent 55%),
+      radial-gradient(120% 80% at 50% -10%, rgba(79,208,168,.06), transparent 55%),
       radial-gradient(140% 120% at 50% 120%, rgba(0,0,0,.45), transparent 60%);
   }
   body::after{
@@ -69,7 +69,7 @@
   }
 
   a{color:inherit;text-decoration:none}
-  ::selection{background:rgba(92,200,242,.22);color:#fff}
+  ::selection{background:rgba(79,208,168,.22);color:#fff}
 
   :focus-visible{
     outline:2px solid var(--accent);
@@ -362,25 +362,22 @@
       <span class="label">What it does</span>
     </div>
     <ol class="features">
-      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Missing-episode scan</b><span>Finds the gaps across all your shows.</span></p></li>
-      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Sonarr integration</b><span>Works with your existing Sonarr setup.</span></p></li>
-      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>Auto-search</b><span>Kicks off searches for the gaps it finds.</span></p></li>
+      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Missing-episode scan</b><span>Scans every series in your library and flags the episodes you're missing, season by season. A clear poster grid shows exactly where the gaps are.</span></p></li>
+      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Sonarr integration</b><span>Hooks into your existing Sonarr setup to cross-check what should exist against what you actually have on disk.</span></p></li>
+      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>Auto-search</b><span>Kicks off searches for the gaps it finds, so filling them is one click instead of a manual hunt.</span></p></li>
     </ol>
-
   </section>
 
   <section class="sec wrap" aria-labelledby="shots-title">
     <div class="sec-head">
       <h2 id="shots-title">Screenshots</h2>
-      <span class="label">Coming soon</span>
+      <span class="label">A closer look</span>
     </div>
-    <p class="shots-note">A closer look at the missing-episode report is on the way.</p>
+    <p class="shots-note">A closer look inside MissingEpisodes.</p>
     <div class="shots">
-      <!-- To enable a screenshot: add the image to /assets (e.g. assets/missingepisodes-1.png) and uncomment the matching <figure> block below. -->
-      <!--
-      <figure class="shot"><img src="../assets/missingepisodes-1.png" alt="MissingEpisodes rating widget on a movie in Jellyfin" loading="lazy" width="1600" height="900"><figcaption>The rating widget in the Jellyfin UI.</figcaption></figure>
-      <figure class="shot"><img src="../assets/missingepisodes-2.png" alt="MissingEpisodes external sync settings" loading="lazy" width="1600" height="900"><figcaption>Two-way sync configuration.</figcaption></figure>
-      -->
+      <figure class="shot"><img src="../assets/missingepisodes-1.png" alt="MissingEpisodes overview" loading="lazy"><figcaption>The missing-episodes overview.</figcaption></figure>
+      <figure class="shot"><img src="../assets/missingepisodes-2.png" alt="MissingEpisodes poster grid of incomplete shows" loading="lazy"><figcaption>Poster grid of incomplete shows.</figcaption></figure>
+      <figure class="shot"><img src="../assets/missingepisodes-3.png" alt="MissingEpisodes per-episode detail" loading="lazy"><figcaption>Per-episode gaps, flagged.</figcaption></figure>
     </div>
   </section>
 

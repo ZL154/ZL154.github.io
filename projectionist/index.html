@@ -31,7 +31,7 @@
     --ink-faint:#6f6c67;
     --line:rgba(236,232,225,.10);
     --line-strong:rgba(236,232,225,.18);
-    --accent:#5cc8f2;
+    --accent:#ff8a63;
     --serif:"Fraunces",Georgia,"Times New Roman",serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     --maxw:1080px;
@@ -58,7 +58,7 @@
     position:fixed;inset:0;
     pointer-events:none;z-index:0;
     background:
-      radial-gradient(120% 80% at 50% -10%, rgba(92,200,242,.06), transparent 55%),
+      radial-gradient(120% 80% at 50% -10%, rgba(255,138,99,.06), transparent 55%),
       radial-gradient(140% 120% at 50% 120%, rgba(0,0,0,.45), transparent 60%);
   }
   body::after{
@@ -69,7 +69,7 @@
   }
 
   a{color:inherit;text-decoration:none}
-  ::selection{background:rgba(92,200,242,.22);color:#fff}
+  ::selection{background:rgba(255,138,99,.22);color:#fff}
 
   :focus-visible{
     outline:2px solid var(--accent);
@@ -362,25 +362,22 @@
       <span class="label">What it does</span>
     </div>
     <ol class="features">
-      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Folder-based prerolls</b><span>Plays your clips before movies and episodes.</span></p></li>
-      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Schedules &amp; rules</b><span>Control exactly when each clip plays.</span></p></li>
-      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>Maturity gating</b><span>Keeps younger viewers' sessions appropriate.</span></p></li>
+      <li><span class="fi" aria-hidden="true">01</span><p class="ft"><b>Folder-based prerolls</b><span>Play trailers, bumpers or intros from your own folders before movies and episodes. Drop files in and they're in rotation.</span></p></li>
+      <li><span class="fi" aria-hidden="true">02</span><p class="ft"><b>Schedules &amp; rules</b><span>Decide exactly when each clip plays — by time, library, content type or your own rules. Seasonal reels and per-library intros just work.</span></p></li>
+      <li><span class="fi" aria-hidden="true">03</span><p class="ft"><b>Maturity gating</b><span>Respects content ratings so a kids' session never gets an adult preroll. Cinema flourish, age-appropriate.</span></p></li>
     </ol>
-
   </section>
 
   <section class="sec wrap" aria-labelledby="shots-title">
     <div class="sec-head">
       <h2 id="shots-title">Screenshots</h2>
-      <span class="label">Coming soon</span>
+      <span class="label">A closer look</span>
     </div>
-    <p class="shots-note">A closer look at preroll scheduling is on the way.</p>
+    <p class="shots-note">A closer look inside Projectionist.</p>
     <div class="shots">
-      <!-- To enable a screenshot: add the image to /assets (e.g. assets/projectionist-1.png) and uncomment the matching <figure> block below. -->
-      <!--
-      <figure class="shot"><img src="../assets/projectionist-1.png" alt="Projectionist rating widget on a movie in Jellyfin" loading="lazy" width="1600" height="900"><figcaption>The rating widget in the Jellyfin UI.</figcaption></figure>
-      <figure class="shot"><img src="../assets/projectionist-2.png" alt="Projectionist external sync settings" loading="lazy" width="1600" height="900"><figcaption>Two-way sync configuration.</figcaption></figure>
-      -->
+      <figure class="shot"><img src="../assets/projectionist-1.png" alt="Projectionist source and library setup" loading="lazy"><figcaption>Source and library setup.</figcaption></figure>
+      <figure class="shot"><img src="../assets/projectionist-2.png" alt="Projectionist playback rules" loading="lazy"><figcaption>Playback rules.</figcaption></figure>
+      <figure class="shot"><img src="../assets/projectionist-3.png" alt="Projectionist smart selection" loading="lazy"><figcaption>Smart preroll selection.</figcaption></figure>
     </div>
   </section>
 
