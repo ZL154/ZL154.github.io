@@ -204,7 +204,7 @@
 
   .row-grid{
     display:grid;
-    grid-template-columns:64px minmax(0,1fr);
+    grid-template-columns:minmax(2.4em,auto) minmax(0,1fr);
     gap:0 clamp(20px,4vw,52px);
     padding:clamp(30px,4.5vw,48px) 0;
     align-items:start;
@@ -217,6 +217,11 @@
     line-height:1;
     padding-top:.35em;
     transition:color .3s ease;
+    /* keep the glyph fully inside its track: never clipped at any width */
+    display:block;
+    min-width:max-content;
+    text-align:left;
+    overflow:visible;
   }
   .row:hover .idx{color:var(--accent)}
 
@@ -228,8 +233,14 @@
     line-height:1.04;
     letter-spacing:-.015em;
     margin:0;
-    display:inline-flex;align-items:center;gap:.45ch;
   }
+  .row-name a{
+    display:inline-flex;align-items:center;gap:.45ch;
+    color:inherit;
+    transition:color .25s ease;
+  }
+  .row-name a:hover{color:var(--ink)}
+  .row:hover .row-name a{color:var(--ink)}
   .row-name .go{
     display:inline-block;
     font-family:var(--sans);
@@ -239,7 +250,26 @@
     opacity:0;
     transition:opacity .3s ease, transform .3s ease;
   }
-  .row:hover .row-name .go{opacity:1;transform:translate(2px,-.55em)}
+  .row:hover .row-name a .go{opacity:1;transform:translate(2px,-.55em)}
+
+  .row-foot{
+    margin:22px 0 0;
+    display:flex;flex-wrap:wrap;align-items:center;
+    gap:10px 18px;justify-content:space-between;
+  }
+  .details{
+    font-size:13px;
+    color:var(--ink-dim);
+    letter-spacing:.02em;
+    padding:6px 0;
+    display:inline-flex;align-items:center;gap:.4ch;
+    border-bottom:1px solid transparent;
+    transition:color .2s ease,border-color .2s ease;
+  }
+  .details .arr{transition:transform .25s ease;display:inline-block}
+  .details:hover{color:var(--ink);border-color:var(--accent)}
+  .details:hover .arr{transform:translateX(3px)}
+  .row:hover .details{color:var(--ink)}
 
   .row-desc{
     margin:14px 0 0;
@@ -352,7 +382,9 @@
 
     .row-grid{grid-template-columns:1fr;gap:0}
     .idx{padding-top:0;margin-bottom:10px;font-size:18px}
-    .row:hover .row-name .go{opacity:1}
+    .row:hover .row-name a .go{opacity:1}
+    .row-foot{flex-direction:column;align-items:flex-start;gap:14px}
+    .links{margin-top:0}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -413,7 +445,7 @@
         <div class="row-grid">
           <div class="idx" aria-hidden="true">01</div>
           <div class="row-body">
-            <h3 class="row-name">JellyfinSecurity<span class="go" aria-hidden="true">↗</span></h3>
+            <h3 class="row-name"><a href="/jellyfinsecurity/">JellyfinSecurity<span class="go" aria-hidden="true">↗</span></a></h3>
             <p class="row-desc">Hardens Jellyfin sign-in: native two-factor auth (TOTP &amp; email), passkeys / WebAuthn, OIDC / SSO for Google, Authentik, Authelia and Keycloak, brute-force IP banning and impossible-travel detection.</p>
             <p class="tags">
               <span>two-factor auth</span><span>passkeys</span><span>oidc / sso</span><span>brute-force defense</span>
@@ -421,13 +453,16 @@
             <!-- optional screenshot — drop assets/jellyfinsecurity.png here later
             <figure class="shot"><img src="assets/jellyfinsecurity.png" alt="JellyfinSecurity login screen with a two-factor prompt" loading="lazy"></figure>
             -->
-            <p class="links">
-              <a href="https://github.com/ZL154/JellyfinSecurity" rel="noopener">GitHub</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/JellyfinSecurity/releases/latest" rel="noopener">Release</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/JellyfinSecurity/wiki" rel="noopener">Docs</a>
-            </p>
+            <div class="row-foot">
+              <p class="links">
+                <a href="https://github.com/ZL154/JellyfinSecurity" rel="noopener">GitHub</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/JellyfinSecurity/releases/latest" rel="noopener">Release</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/JellyfinSecurity/wiki" rel="noopener">Docs</a>
+              </p>
+              <a class="details" href="/jellyfinsecurity/">Details <span class="arr" aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </li>
@@ -437,7 +472,7 @@
         <div class="row-grid">
           <div class="idx" aria-hidden="true">02</div>
           <div class="row-body">
-            <h3 class="row-name">StarTrack<span class="go" aria-hidden="true">↗</span></h3>
+            <h3 class="row-name"><a href="/startrack/">StarTrack<span class="go" aria-hidden="true">↗</span></a></h3>
             <p class="row-desc">Letterboxd-style star ratings with two-way sync to Trakt, Simkl, Letterboxd and Yamtrack — plus watched / liked sync and a backfill of every rating you've already given.</p>
             <p class="tags">
               <span>star ratings</span><span>two-way sync</span><span>trakt · simkl · letterboxd</span><span>backfill</span>
@@ -445,11 +480,14 @@
             <!-- optional screenshot — drop assets/startrack.png here later
             <figure class="shot"><img src="assets/startrack.png" alt="StarTrack rating widget on a film detail page" loading="lazy"></figure>
             -->
-            <p class="links">
-              <a href="https://github.com/ZL154/jellyfin-plugin-startrack" rel="noopener">GitHub</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/jellyfin-plugin-startrack/releases/latest" rel="noopener">Release</a>
-            </p>
+            <div class="row-foot">
+              <p class="links">
+                <a href="https://github.com/ZL154/jellyfin-plugin-startrack" rel="noopener">GitHub</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/jellyfin-plugin-startrack/releases/latest" rel="noopener">Release</a>
+              </p>
+              <a class="details" href="/startrack/">Details <span class="arr" aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </li>
@@ -459,7 +497,7 @@
         <div class="row-grid">
           <div class="idx" aria-hidden="true">03</div>
           <div class="row-body">
-            <h3 class="row-name">AchievementBadges<span class="go" aria-hidden="true">↗</span></h3>
+            <h3 class="row-name"><a href="/achievementbadges/">AchievementBadges<span class="go" aria-hidden="true">↗</span></a></h3>
             <p class="row-desc">Achievement-style badges earned from your viewing and reading activity — first watches, binges, late-night sessions — with a backfill that reads your existing history.</p>
             <p class="tags">
               <span>badges</span><span>viewing &amp; reading</span><span>milestones</span><span>backfill</span>
@@ -467,11 +505,14 @@
             <!-- optional screenshot — drop assets/achievementbadges.png here later
             <figure class="shot"><img src="assets/achievementbadges.png" alt="AchievementBadges grid shown on a user profile" loading="lazy"></figure>
             -->
-            <p class="links">
-              <a href="https://github.com/ZL154/AchievementBadges_for_Jellyfin" rel="noopener">GitHub</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/AchievementBadges_for_Jellyfin/releases/latest" rel="noopener">Release</a>
-            </p>
+            <div class="row-foot">
+              <p class="links">
+                <a href="https://github.com/ZL154/AchievementBadges_for_Jellyfin" rel="noopener">GitHub</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/AchievementBadges_for_Jellyfin/releases/latest" rel="noopener">Release</a>
+              </p>
+              <a class="details" href="/achievementbadges/">Details <span class="arr" aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </li>
@@ -481,7 +522,7 @@
         <div class="row-grid">
           <div class="idx" aria-hidden="true">04</div>
           <div class="row-body">
-            <h3 class="row-name">MissingEpisodes<span class="go" aria-hidden="true">↗</span></h3>
+            <h3 class="row-name"><a href="/missingepisodes/">MissingEpisodes<span class="go" aria-hidden="true">↗</span></a></h3>
             <p class="row-desc">Scans your library against Sonarr to find the episodes you're missing — and can kick off an automatic search to fill the gaps.</p>
             <p class="tags">
               <span>library scan</span><span>sonarr</span><span>auto-search</span>
@@ -489,11 +530,14 @@
             <!-- optional screenshot — drop assets/missingepisodes.png here later
             <figure class="shot"><img src="assets/missingepisodes.png" alt="MissingEpisodes report listing absent episodes" loading="lazy"></figure>
             -->
-            <p class="links">
-              <a href="https://github.com/ZL154/MissingEpisodesJellyfin" rel="noopener">GitHub</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/MissingEpisodesJellyfin/releases/latest" rel="noopener">Release</a>
-            </p>
+            <div class="row-foot">
+              <p class="links">
+                <a href="https://github.com/ZL154/MissingEpisodesJellyfin" rel="noopener">GitHub</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/MissingEpisodesJellyfin/releases/latest" rel="noopener">Release</a>
+              </p>
+              <a class="details" href="/missingepisodes/">Details <span class="arr" aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </li>
@@ -503,7 +547,7 @@
         <div class="row-grid">
           <div class="idx" aria-hidden="true">05</div>
           <div class="row-body">
-            <h3 class="row-name">Projectionist<span class="go" aria-hidden="true">↗</span></h3>
+            <h3 class="row-name"><a href="/projectionist/">Projectionist<span class="go" aria-hidden="true">↗</span></a></h3>
             <p class="row-desc">Folder-based prerolls before movies and episodes — driven by schedules, rules and maturity gating, so the right clip plays at the right time.</p>
             <p class="tags">
               <span>prerolls</span><span>schedules &amp; rules</span><span>maturity gating</span>
@@ -511,11 +555,14 @@
             <!-- optional screenshot — drop assets/projectionist.png here later
             <figure class="shot"><img src="assets/projectionist.png" alt="Projectionist schedule and rules configuration" loading="lazy"></figure>
             -->
-            <p class="links">
-              <a href="https://github.com/ZL154/jellyfin-projectionist" rel="noopener">GitHub</a>
-              <span class="sep" aria-hidden="true">·</span>
-              <a href="https://github.com/ZL154/jellyfin-projectionist/releases/latest" rel="noopener">Release</a>
-            </p>
+            <div class="row-foot">
+              <p class="links">
+                <a href="https://github.com/ZL154/jellyfin-projectionist" rel="noopener">GitHub</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a href="https://github.com/ZL154/jellyfin-projectionist/releases/latest" rel="noopener">Release</a>
+              </p>
+              <a class="details" href="/projectionist/">Details <span class="arr" aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </li>
